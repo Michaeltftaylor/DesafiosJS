@@ -1,0 +1,51 @@
+body{
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 25px;
+    text-align: center;
+    text-shadow:  rgb(27, 75, 177) 0px 0px 0px ;
+    color: rgb(27, 75, 177) ;
+    margin-top: 20px;
+    background: rgb(36, 97, 230);
+}
+
+#divrelogio{
+    font-family: 'IBM Plex Sans', sans-serif;
+    background: transparent;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content:space-around;
+    height: 40vh;
+    width: 90vw;
+    max-height:40vh ;
+    max-width: 90vw;
+    margin-top: 70px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: auto;
+    border-radius: 15px;
+    box-shadow:  rgb(27, 75, 177) 0px 0px 15px 20px;
+
+}
+
+#divrelogio div{
+    letter-spacing: 3px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 50px;
+    height: 30vh;
+    width: 50vw;
+    margin: auto 2vw auto;
+    /*height: 170px;
+    width: 150px;*/
+    background: transparent;
+    box-shadow: inset rgb(27, 75, 177) 0px 0px 20px 20px;
+    border-radius: 15px;
+
+}
+
+.time{
+    font-size: 20px;
+}
