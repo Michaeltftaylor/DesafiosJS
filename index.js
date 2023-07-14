@@ -34,3 +34,45 @@ function obterDiaSemana(dia) {
 
 // Chamar a função para atualizar o relógio e a data a cada segundo
   setInterval(atualizarRelogio, 1000);
+
+  //Previsão do tempo
+
+const apiKey = 'a84ead48d7a44fe47dc7fe7aecf614d8' // chave aprkey
+
+async function obterPrevisaoTempo(cidade) {
+  try {
+    const url =`https://api.openweathermap.org/data/2.5/weather?q=${cidade}&appid=${apiKey}`;
+
+    const response = await fetch(url);
+    const data = await response.json();
+
+    if (response.ok) {
+      const temperatura = Math.round(data.main.temp - 273.15); // Convertendo de Kelvin para Celsius
+      const nomeCidade = data.name;
+
+      const divCidade = document.getElementById('divCidade');
+      const divPrevisao = document.getElementById('divPrevisao');
+
+      divCidade.textContent = nomeCidade;
+      divPrevisao.textContent = `${temperatura}°C`;
+    } else {
+      console.log('Não foi possível obter a previsão do tempo.');
+    }
+  } catch (error) {
+    console.log('Ocorreu um erro ao buscar a previsão do tempo:', error);
+  }
+}
+
+const inputPesquisa = document.getElementById('brPesquisa');
+const buttonEnviar = document.getElementById('btnPesquisar');
+
+buttonEnviar.addEventListener('click', function (event) {
+  event.preventDefault(); // Impede o comportamento padrão de envio do formulário
+  const cidade = inputPesquisa.value;
+  obterPrevisaoTempo(cidade);
+});
+
+// Exemplo inicial
+obterPrevisaoTempo('Cidade...');
+
+//
